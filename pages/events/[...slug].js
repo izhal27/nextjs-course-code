@@ -1,5 +1,6 @@
 import { Fragment, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import useSWR from 'swr';
 
 import { getFilteredEvents, URL } from '../../helpers/api-util';
@@ -77,9 +78,16 @@ export default function FilteredEventsPage() {
   }
 
   const date = new Date(numYear, numMonth - 1);
-
+  const formatedDate = `Events in ${new Date(date).toLocaleDateString('id-ID', {
+    month: 'long',
+    year: 'numeric',
+  })}`;
   return (
     <Fragment>
+      <Head>
+        <title>Filtered Events</title>
+        <meta name="description" content={`All Events for ${formatedDate}`} />
+      </Head>
       <ResultsTitle date={date} />
       <EventList items={filteredEvents} />
     </Fragment>

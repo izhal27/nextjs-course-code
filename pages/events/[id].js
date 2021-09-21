@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import Head from 'next/head';
 
 import { getFeaturedEvents, getEventById } from '../../helpers/api-util';
 import EventSummary from '../../components/event-detail/event-summary';
@@ -14,14 +15,19 @@ export default function DetailEventPage({ event }) {
     );
   }
 
+  const { title, date, location, image } = event;
+
   return (
     <Fragment>
-      <EventSummary title={event.title} />
+      <Head>
+        <title>NextJS Events | {title}</title>
+      </Head>
+      <EventSummary title={title} />
       <EventLogistics
-        date={event.date}
-        address={event.location}
-        image={event.image}
-        imageAlt={event.title}
+        date={date}
+        address={location}
+        image={image}
+        imageAlt={title}
       />
       <EventContent>
         <p>{event.description}</p>

@@ -4,7 +4,7 @@ import classes from './results-title.module.css';
 function ResultsTitle(props) {
   const { date } = props;
 
-  const humanReadableDate = new Date(date).toLocaleDateString('en-US', {
+  const humanReadableDate = new Date(date).toLocaleDateString('id-ID', {
     month: 'long',
     year: 'numeric',
   });
@@ -12,7 +12,7 @@ function ResultsTitle(props) {
   return (
     <section className={classes.title}>
       <h1>Events in {humanReadableDate}</h1>
-      <Button link='/events'>Show all events</Button>
+      <Button link="/events">Show all events</Button>
     </section>
   );
 }
