@@ -1,11 +1,13 @@
 import { Fragment } from 'react';
 
 import EventList from '../components/events/event-list';
+import NewsletterRegistration from '../components/input/newsletter-registration';
 import { getFeaturedEvents } from '../helpers/api-util';
 
 export default function HomePage({ events }) {
   return (
     <Fragment>
+      <NewsletterRegistration />
       <EventList items={events} />
     </Fragment>
   );
