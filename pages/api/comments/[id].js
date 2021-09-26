@@ -1,7 +1,7 @@
 import { sanitize, escape } from 'sanitizer';
 import { MongoClient } from 'mongodb';
 
-import { validateEmail, EVENTS_URL } from '../../../helper/util';
+import { validateEmail, EVENTS_URL } from '../../../helpers/util';
 
 export default async (req, res) => {
   const {

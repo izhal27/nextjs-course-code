@@ -1,7 +1,7 @@
 import { sanitize } from 'sanitizer';
 import { MongoClient } from 'mongodb';
 
-import { validateEmail, NEWSLETTER_URL } from '../../helper/util';
+import { validateEmail, NEWSLETTER_URL } from '../../helpers/util';
 
 const client = new MongoClient(NEWSLETTER_URL);
 
@@ -25,7 +25,7 @@ export default async (req, res) => {
 
         await client.db().collection('emails').insertOne(newEmail);
       } catch (error) {
-        return res.status(500).jsson({ message: 'Inserting data failed!' });
+        return res.status(500).json({ message: 'Inserting data failed!' });
       }
 
       return res.status(201).json({ message: 'success', data: newEmail });
